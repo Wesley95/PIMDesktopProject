@@ -1,0 +1,79 @@
+﻿.operation-type-date,
+.add-container-info {
+    width: 100%;
+    overflow: auto;
+    position: relative;
+    border-bottom:1px solid #eeeeee;
+    /*background: brown;*/
+}
+
+
+.label-add
+{
+    font-size:12px;
+}
+
+.add-container-info {
+    /*background: purple;*/
+    margin-top: 20px;
+    box-sizing: border-box;
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: row;
+    border-bottom:1px solid #eeeeee;
+}
+
+.object-info {
+    width: 33.333333%;
+    /*background: gray;*/
+}
+
+.field-name {
+    display: block;
+    /*background: purple;*/
+    font-size: 13px;
+    color: #FFCF6D;
+    font-weight: 700;
+    padding:0px 0px 8px;
+}
+
+.form-to-add {
+    width: 80%;
+    /*background: blue;*/
+    margin: 0 auto;
+}
+
+.operation-type {
+    /*padding: 1px 0px;*/
+    justify-content: space-between;
+}
+
+.operation-type, .date-change, .buy-field,
+.coin-type, .sell-field, .rate-field {
+    font-size: 12px;
+    width: 100%;
+    outline: none;
+}
+
+.date-change {
+    padding: 0px 2px;
+}
+
+.text-commentary
+{
+    width:calc(100% - 30px);
+    margin:0 auto;
+    resize:none;
+}
+
+.commentary-area
+{
+    box-sizing:border-box;
+    padding:15px 15px 15px;
+    width:100%;
+    /*background:brown;*/
+}
+
+/*input::-webkit-calendar-picker-indicator{
+    display: none;
+}*/

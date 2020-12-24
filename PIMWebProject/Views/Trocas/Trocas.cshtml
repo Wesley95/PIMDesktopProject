@@ -1,0 +1,171 @@
+﻿@using PIMDesktopProjectDTO;
+@using PIMWebProject.Helpers;
+
+@{
+
+    var trades = (List<TradeDTO>)ViewData["Trocas"];
+    var cookie = CookiesControll.UserAuthenticationInfo().Name;
+    var historic = (List<HistoricDTO>)ViewData["Historico"];
+}
+
+<input type="hidden" id="hidden-id-user" data-id="@cookie" />
+<div class="trade-container">
+    <div class="width-max-table">
+        <div class="trades-button-container">
+            <button class="btn-trades btn-add-trade" onclick="location.href='@Url.Action("Add","Trocas")'">Novo</button>
+            @*<button class="btn-trades btn-change-trade" disabled>Alterar</button>*@
+            <button class="btn-trades btn-remove-trade" disabled>Remover</button>
+        </div>
+        <table class="table-trades" width=200 cellpadding=10>
+            <thead>
+                <tr>
+                    <th scope="col" style="width:3%"> </th>
+                    <th scope="col" style="width:13.857142%">Tipo</th>
+                    <th scope="col" style="width:13.857142%;text-align:right;">Comprar</th>
+                    <th scope="col" style="width:13.857142%">Moeda</th>
+                    <th scope="col" style="width:13.857142%;text-align:right;">Vender</th>
+                    <th scope="col" style="width:13.857142%">Moeda</th>
+                    <th scope="col" style="width:13.857142%">Troca</th>
+                    <th scope="col" style="width:13.857142%">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var trade in trades)
+                {
+
+                    string tipo = "";
+                    string date = trade.DataTroca.Date.ToString();
+                    switch (trade.Tipo)
+                    {
+                        case "Entrada":
+                            tipo = "green-text";
+                            break;
+                        case "Saída":
+                            tipo = "red-text";
+                            break;
+                        case "Troca":
+                            break;
+                    }
+
+                    <tr class="tr-trade-row" data-id="@(trade.Id)">
+                        <th scope="row">
+                            <input type="checkbox" class="ckb-selected-row" />
+                        </th>
+                        <td class="@tipo">@trade.Tipo</td>
+                        <td style="text-align:right">@trade.ValorCompra</td>
+                        <td>@trade.MoedaCompra</td>
+                        <td style="text-align:right">@trade.ValorVenda</td>
+                        <td>@trade.MoedaVenda</td>
+                        <td>Bitstamp CSV</td>
+                        <td>@date.Substring(0, 10)</td>
+                    </tr>
+                    <tr class="tr-info-row" data-id="@trade.Id">
+                        <td class="td-info-row" colspan=8>
+                            <div class="container-info disabled">
+                                <div class="line-item">
+                                    <label>Compra: @(trade.ValorCompra + "  " + trade.MoedaCompra)</label>
+                                </div>
+                                <div class="line-item">
+                                    <label>Venda:@(trade.ValorVenda + "  " + trade.MoedaVenda)</label>
+                                </div>
+                                <div class="line-item">
+                                    <label>Taxa:@(trade.ValorTaxa + "  " + trade.MoedaTaxa)</label>
+                                </div>
+                                <div class="line-item">
+                                    <label>@trade.Tipo realizada em: @date.Substring(0, 10)</label>
+                                </div>
+                                <div class="line-item">
+                                    <label>Comentário:@trade.Comentario</label>
+                                </div>
+                                <div class="line-item last-line-item">
+                                    <label>ID da Troca: @trade.Id</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @if (trades.Count > 0)
+        {
+            <div class="container-buttons">
+                <input type="hidden" class="decrease-increase-value-trades" value="0" />
+                <button class="decrease-trades btn-trades"><</button>
+                <button class="increase-trades btn-trades">></button>
+            </div>
+        }
+    </div>
+    <div class="historic-container">
+        @foreach (var item in historic)
+        {
+            string[] date = item.Data.Date.ToString().Substring(0, 10).Split('/');
+            string month = "";
+            switch (date[1])
+            {
+                case "1":
+                    month = "JAN";
+                    break;
+                case "2":
+                    month = "FEV";
+                    break;
+                case "3":
+                    month = "MAR";
+                    break;
+                case "4":
+                    month = "ABR";
+                    break;
+                case "5":
+                    month = "MAI";
+                    break;
+                case "6":
+                    month = "JUN";
+                    break;
+                case "7":
+                    month = "JUL";
+                    break;
+                case "8":
+                    month = "AGO";
+                    break;
+                case "9":
+                    month = "SET";
+                    break;
+                case "10":
+                    month = "OUT";
+                    break;
+                case "11":
+                    month = "NOV";
+                    break;
+                case "12":
+                    month = "DEZ";
+                    break;
+            }
+
+            <div class="historic-item">
+                <div class="date-historic-item">
+                    <div>
+                        <label class="year-date-historic">@($"{date[0]} {month}")</label>
+                        <label class="year-date-historic">@date[2]</label>
+                    </div>
+                </div>
+                <div class="text-historic-item">
+                    <span>
+                        @item.Descricao
+                    </span>
+                </div>
+            </div>
+        }
+        @if (historic.Count >= 7)
+        {
+            <div class="container-buttons">
+                <input type="hidden" value="0" class="decrease-increase-value" />
+                <button class="decrease-historic btn-trades"><</button>
+                <button class="increase-historic btn-trades">></button>
+            </div>
+        }
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/Trade.js")
+}

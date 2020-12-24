@@ -1,0 +1,60 @@
+﻿@using PIMWebProject.Helpers;
+@using PIMDesktopProjectDTO;
+@using PIMDesktopProjectBLL;
+
+@{
+    GenericUserDTO userinfo = new GenericUserDTO();
+    string name = string.Empty;
+
+    bool userlogged = CookiesControll.UserAuthenticationInfo().Name == null;
+    //O nome é o ID e se for nulo, significa que está logado
+
+    if (!userlogged)
+    {
+        userinfo = GenericUserBLL.GetUserById(CookiesControll.UserAuthenticationInfo().Name);
+        name = userinfo.Nome.ToUpper().Split(' ')[0];
+        if (userinfo.Nome.Split(' ').Length > 1)
+        {
+            name += !string.IsNullOrEmpty(userinfo.Nome.ToUpper().Split(' ')[1]) ? " " + userinfo.Nome.ToUpper().Split(' ')[1][0] + "." : "";
+        }
+    }
+}
+
+<div class="nav-top">
+    <div class="top-border"></div>
+    <div class="border-style"></div>
+
+    <div class="width-max ">
+        @Html.ActionLink(" ", "Index", "Home", new { area = "" }, htmlAttributes: new { @class = "top-center-img" })
+
+        <ul class="left-li">
+            <li>@Html.ActionLink("HOME", "Index", "Home", new { area = "" }, htmlAttributes: new { @class = "anim-easy-in-out-0-5s" })</li>
+            <li>@Html.ActionLink("SOBRE", "About", "Home", new { area = "" }, htmlAttributes: new { @class = "anim-easy-in-out-0-5s" })</li>
+        </ul>
+        <nav class="log-area">
+
+            @if (!userlogged)//VERIFICA SE O USUÁRIO ESTÁ LOGADO OU NÃO
+            {
+                <div class="logged">
+                    <div class="img-login">
+                        <input type="checkbox" id="trigger" class="check-outclick" />
+                        <label class="noselect" for="trigger" id="lbl-trigger">
+                            <i class="fa fa-plus"> </i> @(name)
+                        </label>
+                        <ul>
+                            <li><a href='@Url.Action("Trocas", "Trocas", new { area = "" })'><i class="fas fa-list-alt"> </i>TROCAS</a></li>
+                            <li><a href='@Url.Action("Configuracao", "Configuracao", new { area = "" })'><i class="fas fa-list-alt"> </i>CONFIGURAÇÃO</a></li>
+                            <li><a href='@Url.Action("Sair", "Login", new { area = "" }, null)'><i class="fa fa-sign-out" aria-hidden="true"> </i>SAIR - LOGOFF</a></li>
+                        </ul>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <ul class="login-signup">
+                    <li><a href='@Url.Action("SignIn", "Login",null,null)' class="anim-easy-in-out-0-5s">LOGIN</a></li>
+                </ul>
+            }
+        </nav>
+    </div>
+</div>

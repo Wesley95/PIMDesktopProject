@@ -1,0 +1,94 @@
+﻿@using PIMDesktopProjectDTO;
+
+@{
+    var user = (PhraseDTO)ViewData["Usuario"];
+}
+
+<div class="width-max container-config container-default">
+    <div class="tab flex-row">
+        <div class="nav-tab">
+            <ul class="ul-tab flex-row">
+                <li><a class="tab-item-button active" id="password-tab">SENHA</a></li>
+                <li><a class="tab-item-button" id="phrase-tab">FRASE</a></li>
+            </ul>
+        </div>
+
+        <div class="content-tab">
+            <div class="container-config-tab" id="password-tab" style="display:flex">
+                <div class="container-config-pass">
+                    <div class="container-pass">
+                        <div class="form-group">
+                            <label for="cur-pass" class="label-add">Senha Atual</label><br />
+                            <input type="password" maxlength="10" id="cur-pass" class="control-properties normal-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phrase-field" class="label-add">Frase</label>
+                            <textarea class="form-control normal-control control-properties spcltr" id="phrase-field" rows="3" maxlength="300"></textarea>
+                        </div>
+
+                        <hr class="special-hr" />
+
+                        <div class="form-group">
+                            <label for="new-pass" class="label-add">Nova Senha</label><br />
+                            <input type="password" maxlength="10" id="new-pass" class="control-properties normal-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-pass" class="label-add">Confirmar Senha</label><br />
+                            <input type="password" maxlength="10" id="confirm-pass" class="control-properties normal-control" />
+                        </div>
+
+                        <button class="btn-trades confirm-pass-change">Salvar</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container-config-tab" id="phrase-tab" style="display:none">
+                <div class="container-config-item">
+                    @if (user.Id == "null")
+                    {
+                        <div class="no-id">
+                            <p>
+                                Você ainda não tem uma frase de segurança. Cliente em "Gerar Frase" e selecione a
+                                frase que você deseja.
+                            </p>
+                            <button class="btn-trades generate-phrase">Gerar Frase</button>
+                        </div>
+                    }
+                    else
+                    {
+                        DateTime date = user.DataAlteracao.Date;
+                        DateTime now = DateTime.Now.Date;
+                        TimeSpan sp = now - date;
+                        double total = sp.TotalDays;
+
+                        if (total >= 31)
+                        {
+                            <div class="no-id">
+                                <p>
+                                    Você pode alterar a sua frase caso deseje.
+                                </p>
+                                <button class="btn-trades generate-phrase">Gerar Nova Frase</button>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="no-id">
+                                <p>
+                                    A frase só pode ser alterada um mês após a sua última troca.
+                                    A frase foi atualizada no dia @(date.ToString().Substring(0, 10)), e poderá ser
+                                    alterada novamente apenas no dia @(date.AddMonths(1).ToString().Substring(0, 10)).
+                                </p>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    @Scripts.Render("~/Config")
+}

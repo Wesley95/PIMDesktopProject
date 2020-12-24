@@ -1,0 +1,216 @@
+﻿.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tab {
+    margin-top: 50px;
+    width: 100%;
+    overflow: hidden;
+    /*min-height: 450px;*/
+    background-color: #FFFFFF;
+    /*background-color:beige;*/
+}
+
+.ul-tab.flex-row {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    position: relative;
+    margin-top: 7rem;
+    margin-bottom: 0;
+    box-sizing: border-box;
+    padding-inline-start: 0px;
+    left: -70px;
+}
+
+    .ul-tab.flex-row li {
+        display: list-item;
+        transform: rotate(-90deg);
+        height: 1rem;
+        width: 150px;
+        box-sizing: border-box;
+        margin-bottom: 140px;
+    }
+
+        .ul-tab.flex-row li a {
+            text-align: center;
+            margin: 0px 0px 0px 0px;
+            padding: 8px 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 14px;
+            background-color: #FFFFFF;
+            font-weight: 400;
+            line-height: 1.5;
+            box-sizing: border-box;
+            display: block;
+            border-bottom: 1px solid #f3f3f3;
+            cursor: pointer;
+            color: #d3d3d3;
+        }
+
+            .ul-tab.flex-row li a:hover {
+                text-decoration: none;
+                color: #642120;
+            }
+
+            .ul-tab.flex-row li a.active {
+                border-bottom: 0px;
+                border-top: 1px solid #e8e8e8;
+                border-right: 1px solid #e8e8e8;
+                border-left: 1px solid #e8e8e8;
+                color: #642120;
+            }
+
+.nav-tab {
+    width: 64px;
+    float: left;
+    position: relative;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+
+.content-tab {
+    justify-content: space-between;
+    width: calc(100% - 64px);
+    /*background: brown;*/
+    /*height: 1000px;*/
+}
+
+/*CONFIG*/
+.container-config-tab {
+    /*margin-top:50px;*/
+    width: 100%;
+    overflow: auto;
+    /*background: gray;*/
+}
+
+.container-config-item,
+.container-config-pass {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    /*background: purple;*/
+}
+
+    .container-config-item ul {
+        flex-direction: row;
+        left: auto;
+        width: 50%;
+        /*background: red;*/
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto 20px;
+        border-bottom: 1px solid #eeee;
+    }
+
+        .container-config-item ul li {
+            display: list-item;
+            /*height: 1rem;*/
+            padding: 3px 6px;
+            border-radius: 10px;
+            width: auto;
+            height: auto;
+            transform: none;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            background: #ffff;
+            border: 1px solid gray;
+            text-decoration: none;
+            list-style: none;
+            font-size: 10px
+        }
+
+.btn-input {
+    width: 100%;
+    display: flex;
+}
+
+.config-button {
+    width: 70px;
+    font-size: 9px;
+    font-weight: 700;
+    border: 1px solid gray;
+    color: gray;
+    transition: 0.1s ease-in;
+    -webkit-transition: 0.1s ease-in;
+    -o-transition: 0.1s ease-in;
+    -moz-transition: 0.1s ease-in;
+}
+
+    .config-button:hover {
+        border: 1px solid #FFCD54;
+        color: #FFCD54;
+    }
+
+.btn-input input[type=text] {
+    max-width: 1200px;
+    width: calc(100% - 70px);
+    border-bottom: 1px solid gray;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: none;
+}
+
+.btn-input input[type=text],
+.config-button {
+    /*border:none;*/
+    outline: none;
+    background: #ffff;
+}
+
+
+.confirm-phrase {
+    width: 50%;
+    overflow: auto;
+    box-sizing: border-box;
+    margin: 0 auto;
+    /*background-color: bisque;*/
+    padding: 10px 0px;
+}
+
+.mix-words {
+    margin-bottom: 15px;
+}
+
+
+.container-config-item p {
+    text-align: center;
+    font-weight: 600;
+}
+
+.container-config-item .no-id {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+}
+
+#phrase-field
+{
+    resize:none;
+}
+
+.container-pass
+{
+    width:270px;
+    overflow:auto;
+    /*background:yellow;*/
+    margin:0 auto;
+    box-sizing:border-box;
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #eeee;
+}
+
+.special-hr
+{
+    padding:0px;
+    border-color:#eeee;
+}

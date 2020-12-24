@@ -1,0 +1,136 @@
+﻿@using PIMDesktopProjectDTO;
+
+@{
+    var coins = (List<TradeCoinDTO>)ViewData["Coins"];
+    var operations = (List<OperationDTO>)ViewData["Operations"];
+    string id = (string)ViewBag.UserId;
+
+}
+
+<div class="width-max-add container-default">
+    <div class="operation-type-date">
+        <div class="form-row ">
+            <div class="form-group col-md-3">
+                <label for="select-operation" class="label-add">Tipo de Operação</label>
+                <select id="select-operation" name="operation" class="control-properties normal-control operation-type">
+                    <option value="default">Tipo de Operação</option>
+
+                    @foreach (var item in operations)
+                    {
+                        <option value="@item.Id" data-id="@item.Id">@item.Tipo</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="select-date" class="label-add">Data da Operação</label><br />
+                <input type="text" id="select-date" class="control-properties normal-control date-change">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="add-container-info">
+        <div class="object-info">
+            <div class="form-to-add">
+                <div class="field-name">Compra</div>
+                <div class="form-group">
+                    <label for="buy" class="label-add">Compra</label><br />
+                    <input type="text" id="buy" class="control-properties number normal-control buy-field" placeholder="0.00">
+                </div>
+                <div class="form-group">
+                    <label for="select-coin" class="label-add">Moeda</label><br />
+                    <select id="select-coin" name="coin" class="control-properties buy-field-select normal-control coin-type">
+                        <option value="default">Tipo de Moeda</option>
+                        @foreach (var item in coins)
+                        {
+                            <option value="@item.Id" data-id="@item.Id">@item.Sigla</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="object-info">
+            <div class="form-to-add">
+                <div class="field-name">Venda</div>
+                <div class="form-group">
+                    <label for="sell" class="label-add">Venda</label><br />
+                    <input type="text" id="sell" class="control-properties number normal-control sell-field" placeholder="0.00">
+                </div>
+                <div class="form-group">
+                    <label for="select-coin" class="label-add">Moeda</label><br />
+                    <select id="select-coin" name="coin" class="control-properties sell-field-select normal-control coin-type">
+                        <option value="default">Tipo de Moeda</option>
+                        @foreach (var item in coins)
+                        {
+                            <option value="@item.Id" data-id="@item.Id">@item.Sigla</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="object-info">
+            <div class="form-to-add">
+                <div class="field-name">Taxa</div>
+                <div class="form-group">
+                    <label for="rate" class="label-add">Taxa</label><br />
+                    <input type="text" id="rate" class="control-properties number normal-control rate-field" placeholder="0.00">
+                </div>
+                <div class="form-group">
+                    <label for="select-coin" class="label-add">Moeda</label><br />
+                    <select id="select-coin" name="coin" class="control-properties normal-control rate-field-select coin-type">
+                        <option value="default">Tipo de Moeda</option>
+                        @foreach (var item in coins)
+                        {
+                            <option value="@item.Id" data-id="@item.Id">@item.Sigla</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group commentary-area">
+        <label for="commentary-field" class="label-add">Comentário</label>
+        <textarea class="form-control normal-control control-properties text-commentary " id="commentary-field" rows="2" maxlength="150"></textarea>
+    </div>
+    <div class="buttons-to-add">
+        <button class="btn-trades btn-insert-trade">Adicionar</button>
+        <button class="btn-trades btn-cancel-trade" onclick="location.href = '@Url.Action("Trocas","Trocas")'">Cancelar</button>
+    </div>
+
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/Mask")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/AddTrade.js")
+
+    <script type="text/javascript">
+
+        //function applypricemask() {
+
+        //    $(".pricemask").maskMoney({
+        //        prefix: "",
+        //        decimal: ".",
+        //        thousands: "."
+        //    });
+        //}
+
+        //$(document).ready(function () {
+        //    applypricemask();
+        //});
+        $(document).ready(function () {
+            $('.date-change').mask('00/00/0000', { reverse: true });
+            //$('.pricemask').mask('0000.00000000');
+
+            //$('#dtnascimento').mask('00/00/0000');
+            //$('#rg').mask('00.000.000-0');
+            //$('#cep').mask('00000-000');
+        });
+
+
+    </script>
+
+}

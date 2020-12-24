@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using PIMDesktopProjectDTO;
+using PIMDesktopProjectDAO;
+
+namespace PIMDesktopProjectBLL
+{
+    public class WordBLL
+    {
+        public static List<WordDTO> ListAll() =>
+            WordDAO.ListAll();
+    }
+}

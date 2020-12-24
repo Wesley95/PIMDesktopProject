@@ -1,0 +1,195 @@
+﻿.trade-container {
+    width: 1200px;
+    margin: 0 auto;
+    /*background: blue;*/
+    display: flex;
+    padding: 30px 10px;
+}
+
+.width-max-table {
+    /*background: brown;*/
+    width: 70%;
+}
+
+.width-max-add
+{
+    padding-top:50px;
+    width:800px;
+    margin:0 auto;
+}
+
+.trades-button-container
+{
+    margin-bottom:20px;
+}
+
+.historic-container {
+    /*background: pink;*/
+    width: 30%;
+}
+
+.width-max-table,
+.historic-container {
+    box-sizing: border-box;
+    padding: 0px 5px;
+}
+
+.container-buttons {
+    padding: 10px 20px 0px;
+    margin:0 auto;
+}
+
+.btn-trades {
+    border: 2px solid #808080;
+    border-radius: 10px;
+    padding: 3px 10px;
+    background: #ffff;
+    font-size: 12px;
+    color: #808080;
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    outline:none;
+}
+
+    .btn-trades:hover {
+        color: #FFCF6D;
+        border-color: #FFCF6D;
+    }
+
+    .btn-trades:disabled {
+        color: lightgray;
+        border: 2px solid #eeee;
+    }
+
+.table-trades {
+    margin: 0 auto;
+    font-size: 10px;
+    width: 800px;
+}
+
+    .table-trades input[type=checkbox] {
+        margin: 0 auto;
+    }
+
+
+    .table-trades td,
+    .table-trades thead tr th,
+    .table-trades tbody tr th {
+        text-align: center;
+        padding: 5px 10px;
+    }
+
+    .table-trades tr {
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .table-trades .td-info-row {
+        padding: 0px;
+    }
+
+    .table-trades .tr-info-row {
+        border: 0px;
+    }
+
+.tr-info-row.disabled {
+    border: none;
+    height: 0;
+    padding: 0;
+}
+
+.tr-info-row.enabled {
+    overflow: auto;
+    padding: 10px 0px;
+    box-sizing: border-box;
+    background: #ffff;
+}
+
+.line-item {
+    display: block;
+    width: 100%;
+    padding: 2px 10px;
+    text-align: left;
+}
+
+.last-line-item {
+    border-bottom: 1px solid #eeee;
+}
+
+.container-info.enabled {
+    display: block;
+}
+
+.container-info.disabled {
+    display: none;
+}
+
+.line-item label {
+    margin: 0px;
+    padding: 0px;
+    font-weight: 100;
+}
+
+.green-text {
+    color: limegreen;
+}
+
+.red-text {
+    color: red;
+}
+
+
+/*HISTORICO - LINHA DO TEMPO*/
+
+.historic-item {
+    height: 60px;
+    width: 100%;
+    /*background: purple;*/
+    margin-bottom: 5px;
+}
+
+.date-historic-item {
+    float: left;
+    height: 100%;
+    width: 20%;
+    /*background: green;*/
+    box-sizing: border-box;
+    position: relative;
+    border-right: 5px solid #FFCF6D;
+    text-align: center;
+}
+
+.year-date-historic {
+    font-size: 12px;
+}
+
+.date-historic-item {
+    display: table;
+}
+
+    .date-historic-item div {
+        width: 100%;
+        /*background: blue;*/
+        text-wrap: none;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+
+.text-historic-item {
+    width: 80%;
+    float: right;
+    height: 100%;
+    /*background: gray;*/
+    box-sizing: border-box;
+    padding-left: 4px;
+    font-size: 12px;
+    display: table;
+}
+
+    .text-historic-item span {
+        vertical-align: middle;
+        display: table-cell;
+    }
