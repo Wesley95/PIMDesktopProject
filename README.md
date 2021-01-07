@@ -29,24 +29,24 @@ O cliente pode alterar a sua senha caso o mesmo já tenha configurado anteriorme
 <hr/>
 
 <h3>Alterar ou criar Frase Secreta</h3>
-<img src="read-images/image7.png"/>
+<img src="read-images/image7.jpg"/>
 
 A criação da frase secreta é necessária para que o cliente consiga alterar a sua senha no sistema.
 
 <hr/>
 
 <h3>Tabela de Gerenciamento</h3>
-<img src="read-images/image8.png"/>
+<img src="read-images/image8.jpg"/>
 
 Na tabela de gerenciamento de dados o cliente pode visualizar todas as transações que já realizou e cadastrou, sendo elas do tipo Saída, Entrada e Troca.
 Ao lado da Tabela, é possível verificar a linha do tempo do cliente, onde estão cadastradas todas as transações que já foram realizadas, organizadas por data.
 
-<img src="read-images/image9.png"/>
+<img src="read-images/image9.jpg"/>
 
 <hr/>
 
 <h3>Nova Transação</h3>
-<img src="read-images/image10.png"/>
+<img src="read-images/image10.jpg"/>
 
 Para adicionar uma nova transação, o cliente deve colocar os dados necessários do tipo de transação desejada.
 - Se for Troca, é necessário colocar os dados de entrada e saída;
