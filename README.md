@@ -1,8 +1,8 @@
 # PIM - GERENCIADOR DE ENTRADAS E SAÍDAS - BLOCKCHAIN
 
-O SISTEMA A SEGUIR FOI DESENVOLVIDO COMO PROJETO INTEGRADO MULTIDISCIPLINAR, NO CURSO DE ANÁLISE E DESENVOLVIMENTO DE SISTEMAS, COM O OBJETIVO DE DISPONIBILIZAR UM GERENCIADOR DE ENTRADA E SAÍDA DE VALORES PESSOAIS DO MERCADO DE CRIPTOMOEDAS.
-O SISTEMA CONSTA COM ALGUMAS FUNCIONALIDADES, DESDE A SEGURANÇA DA CONTA PESSOAL DO USUÁRIO, ATÉ MESMO DE UMA TABELA CONTENDO OS DADOS DE CONTABILIDADE E CONTROLE DO CLIENTE.
-SEGUE IMAGENS COM EXPLICAÇÕES.
+O sistema a seguir foi desenvolvido como projeto integrado multidisciplinar, no curso de análise e desenvolvimento de sistemas, com o objetivo de disponibilizar um gerenciador de entrada e saída de valores pessoais do mercado de criptomoedas.
+O sistema consta com algumas funcionalidades, desde a segurança da conta pessoal do usuário, até mesmo de uma tabela contendo os dados de contabilidade e controle do cliente.
+Segue imagens com explicações.
 
 <h3>Cadastro de Clientes e Administradores</h3>
 <img src="read-images/image2.png"/>
