@@ -2,6 +2,7 @@
 
 O sistema a seguir foi desenvolvido como projeto integrado multidisciplinar, no curso de análise e desenvolvimento de sistemas, com o objetivo de disponibilizar um gerenciador de entrada e saída de valores pessoais do mercado de criptomoedas.
 O sistema consta com algumas funcionalidades, desde a segurança da conta pessoal do usuário, até mesmo de uma tabela contendo os dados de contabilidade e controle do cliente.
+O projeto Desktop foi desenvolvido em C# Windows Forms, e o projeto Web foi desenvolvido em ASP.NET com MVC5.
 Segue imagens com explicações.
 
 <h3>Cadastro de Clientes e Administradores</h3>
